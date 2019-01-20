@@ -24,7 +24,10 @@ const SelectorTitle = styled.span`
 
 const SelectorButton = styled.button`
   background: ${({active}) => active ? colors.sixtOrange : colors.pureWhite };
+  color: ${({active}) => active ? colors.pureWhite : colors.sixtBlack };
   text-transform: uppercase;
+  border: none;
+  font-size: 16px;
 
   grid-row: 2;
 `;
