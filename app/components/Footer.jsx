@@ -7,7 +7,6 @@ import github from '../images/github-sign.svg';
 const FooterContainer = styled.div`
   background: ${colors.sixtBlack};
   color: ${colors.pureWhite};
-  height: 70px;
   padding: 5px;
   display: grid;
   grid-template: "copyright linkedin github ." 40px

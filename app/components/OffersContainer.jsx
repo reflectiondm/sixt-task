@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { startLoadingOffers, finishLoadingOffers, sortOffers } from '../state/actions';
 import { getOffersData } from '../offers-service';
 import { connect } from 'react-redux';
@@ -6,25 +6,39 @@ import PropTypes from 'prop-types';
 import OffersList from './OffersList';
 import OffersSortingSelector from './OffersSortingSelector';
 import LoadingIndicator from './Loader';
+import Error from './Error';
 
 class OffersContainer extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      error: false
+    };
+  }
+  
   componentDidMount() {
-    this.props.loadOffers();
+    this.props.loadOffers()
+      .catch(() => this.setState({ error: true }));
   }
 
   render() {
+    if (this.state.error) {
+      return <Error />;
+    }
+
     if (this.props.isLoading) {
       return <LoadingIndicator>Offers are loading</LoadingIndicator>;
     }
 
     return (
-      <Fragment>
+      <div>
         <OffersSortingSelector 
           selectedSortingId={this.props.selectedSortingId} 
           onSortingSelect={this.props.onSortingSelect}
         />
         <OffersList offers={this.props.offers} />
-      </Fragment>
+      </div>
     );
   }
 }
@@ -33,7 +47,7 @@ function mapDispatchToProps(dispatch) {
   return {
     loadOffers: () => {
       dispatch(startLoadingOffers());
-      getOffersData()
+      return getOffersData()
         .then(offers => dispatch(finishLoadingOffers(offers)));
     },
     onSortingSelect: (sortingId) => {
