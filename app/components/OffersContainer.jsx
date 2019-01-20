@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { startLoadingOffers, finishLoadingOffers } from '../state/actions';
 import { getOffersData } from '../offers-service';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import OffersList from './OffersList';
+import OffersSortingSelector from './OffersSortingSelector';
 
 class OffersContainer extends React.PureComponent {
   componentDidMount() {
@@ -15,7 +16,12 @@ class OffersContainer extends React.PureComponent {
       return <div>Offers are loading</div>;
     }
 
-    return <OffersList offers={this.props.offers} />;
+    return (
+      <Fragment>
+        <OffersSortingSelector selectedSortingId={'name'}/>
+        <OffersList offers={this.props.offers} />
+      </Fragment>
+    );
   }
 }
 
