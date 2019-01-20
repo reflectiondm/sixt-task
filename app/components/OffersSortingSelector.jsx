@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { colors } from '../styles/constants';
+import { sortingOptions } from '../constants';
 
 const SortingSelectorLayout = styled.div`
   height: 70px;
@@ -42,15 +43,15 @@ export default function OffersSortingSelector({selectedSortingId, onSortingSelec
       <SelectorTitle>Sortieren nach</SelectorTitle>
 
       <SelectorButton 
-        active={isOptionSelected('name', selectedSortingId)}
+        active={isOptionSelected(sortingOptions.name, selectedSortingId)}
         onClick={() => onSortingSelect('name')}
       >Name</SelectorButton>
       <SelectorButton 
-        active={isOptionSelected('price', selectedSortingId)}
+        active={isOptionSelected(sortingOptions.price, selectedSortingId)}
         onClick={() => onSortingSelect('price')}
       >Price</SelectorButton>
       <SelectorButton 
-        active={isOptionSelected('popularity', selectedSortingId)}
+        active={isOptionSelected(sortingOptions.popularity, selectedSortingId)}
         onClick={() => onSortingSelect('popularity')}
       >Popularität</SelectorButton>
     </SortingSelectorLayout>

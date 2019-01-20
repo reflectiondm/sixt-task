@@ -7,6 +7,7 @@ import OffersList from './OffersList';
 import OffersSortingSelector from './OffersSortingSelector';
 import LoadingIndicator from './Loader';
 import Error from './Error';
+import { sortingOptions } from '../constants';
 
 class OffersContainer extends React.PureComponent {
   constructor(props) {
@@ -48,7 +49,8 @@ function mapDispatchToProps(dispatch) {
     loadOffers: () => {
       dispatch(startLoadingOffers());
       return getOffersData()
-        .then(offers => dispatch(finishLoadingOffers(offers)));
+        .then(offers => dispatch(finishLoadingOffers(offers)))
+        .then(() => dispatch(sortOffers(sortingOptions.name)));
     },
     onSortingSelect: (sortingId) => {
       dispatch(sortOffers(sortingId));

@@ -2,9 +2,22 @@ import { LOAD_OFFERS_FINISH, LOAD_OFFERS_START, SORT_OFFERS } from './actions';
 
 const initialState = {
   isLoading: true,
-  selectedSortingId: 'name',
+  selectedSortingId: '',
   offers: []
 };
+
+function sortOffers(offers, sortingId) {
+  return offers.sort((a, b) => {
+    if (a.sortIndexes[sortingId] < b.sortIndexes[sortingId]){
+      return -1;
+    }
+    if (a.sortIndexes[sortingId] > b.sortIndexes[sortingId]){
+      return 1;
+    }
+    
+    return 0;
+  });
+}
 
 export function mainReducer(state, action) {
   if (typeof state === 'undefined') {
@@ -19,16 +32,7 @@ export function mainReducer(state, action) {
   case SORT_OFFERS: {
     const {offers} = state;
     const {sortingId} = action;
-    const sortedOffers = offers.sort((a, b) => {
-      if (a.sortIndexes[sortingId] < b.sortIndexes[sortingId]){
-        return -1;
-      }
-      if (a.sortIndexes[sortingId] > b.sortIndexes[sortingId]){
-        return 1;
-      }
-      
-      return 0;
-    });
+    const sortedOffers = sortOffers(offers, sortingId);
     return {...state, offers: sortedOffers, selectedSortingId: sortingId};
   }
   }
