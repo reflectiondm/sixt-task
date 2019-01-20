@@ -2,8 +2,10 @@ import React from 'react';
 import { startLoadingOffers, finishLoadingOffers } from '../state/actions';
 import { getOffersData } from '../offers-service';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import OffersList from './OffersList';
 
-class OfferLoader extends React.PureComponent {
+class OffersContainer extends React.PureComponent {
   componentDidMount() {
     this.props.loadOffers();
   }
@@ -13,7 +15,7 @@ class OfferLoader extends React.PureComponent {
       return <div>Offers are loading</div>;
     }
 
-    return <div>{this.props.offers.length} offers are loaded</div>;
+    return <OffersList offers={this.props.offers} />;
   }
 }
 
@@ -34,6 +36,12 @@ function mapStateToProps(state) {
   };
 }
 
-const ConnectedOfferLoader = connect(mapStateToProps, mapDispatchToProps)(OfferLoader);
+OffersContainer.propTypes = {
+  isLoading: PropTypes.bool,
+  loadOffers: PropTypes.func.isRequired,
+  offers: PropTypes.array.isRequired
+};
 
-export default ConnectedOfferLoader;
+const ConnectedOffersContainer = connect(mapStateToProps, mapDispatchToProps)(OffersContainer);
+
+export default ConnectedOffersContainer;

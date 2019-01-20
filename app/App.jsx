@@ -1,11 +1,11 @@
 import React from 'react';
-import OfferLoader from './components/OfferLoader';
+import OffersContainer from './components/OffersContainer';
 
 export default function App() {
   return (
     <div>
       <div>Hello world!</div>
-      <OfferLoader />
+      <OffersContainer />
     </div>
   );
 }
