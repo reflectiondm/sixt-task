@@ -33,19 +33,28 @@ function isOptionSelected(sortingId, selectedSortingId) {
   return sortingId === selectedSortingId;
 }
 
-export default function OffersSortingSelector(props) {
-  const selectedSortingId = props.selectedSortingId;
-
+export default function OffersSortingSelector({selectedSortingId, onSortingSelect}) {
   return (
     <SortingSelectorLayout>
       <SelectorTitle>Sortieren nach</SelectorTitle>
-      <SelectorButton active={isOptionSelected('name', selectedSortingId)}>Name</SelectorButton>
-      <SelectorButton active={isOptionSelected('price', selectedSortingId)}>Price</SelectorButton>
-      <SelectorButton active={isOptionSelected('popularity', selectedSortingId)}>Popularität</SelectorButton>
+
+      <SelectorButton 
+        active={isOptionSelected('name', selectedSortingId)}
+        onClick={() => onSortingSelect('name')}
+      >Name</SelectorButton>
+      <SelectorButton 
+        active={isOptionSelected('price', selectedSortingId)}
+        onClick={() => onSortingSelect('price')}
+      >Price</SelectorButton>
+      <SelectorButton 
+        active={isOptionSelected('popularity', selectedSortingId)}
+        onClick={() => onSortingSelect('popularity')}
+      >Popularität</SelectorButton>
     </SortingSelectorLayout>
   );
 }
 
 OffersSortingSelector.propTypes = {
-  selectedSortingId: PropTypes.string.isRequired
+  selectedSortingId: PropTypes.string.isRequired,
+  onSortingSelect: PropTypes.func.isRequired
 };

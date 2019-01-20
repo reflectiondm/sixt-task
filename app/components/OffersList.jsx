@@ -17,7 +17,7 @@ const OffersGrid = styled.div`
 
 function OffersList({offers}) {
   return (
-    <OffersGrid>{offers.map(offer => <OfferCard key={offer.id} offer={offer}/>)}</OffersGrid>
+    <OffersGrid>{offers.map((offer, index) => <OfferCard key={`${offer.id}-${index}`} offer={offer}/>)}</OffersGrid>
   );
 }
 

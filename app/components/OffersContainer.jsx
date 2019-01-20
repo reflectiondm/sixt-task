@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import { startLoadingOffers, finishLoadingOffers } from '../state/actions';
+import { startLoadingOffers, finishLoadingOffers, sortOffers } from '../state/actions';
 import { getOffersData } from '../offers-service';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -18,7 +18,10 @@ class OffersContainer extends React.PureComponent {
 
     return (
       <Fragment>
-        <OffersSortingSelector selectedSortingId={'name'}/>
+        <OffersSortingSelector 
+          selectedSortingId={this.props.selectedSortingId} 
+          onSortingSelect={this.props.onSortingSelect}
+        />
         <OffersList offers={this.props.offers} />
       </Fragment>
     );
@@ -31,6 +34,9 @@ function mapDispatchToProps(dispatch) {
       dispatch(startLoadingOffers());
       getOffersData()
         .then(offers => dispatch(finishLoadingOffers(offers)));
+    },
+    onSortingSelect: (sortingId) => {
+      dispatch(sortOffers(sortingId));
     }
   };
 }
@@ -38,14 +44,17 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     isLoading: state.isLoading,
-    offers: state.offers
+    offers: state.offers,
+    selectedSortingId: state.selectedSortingId
   };
 }
 
 OffersContainer.propTypes = {
   isLoading: PropTypes.bool,
   loadOffers: PropTypes.func.isRequired,
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired,
+  selectedSortingId: PropTypes.string.isRequired,
+  onSortingSelect: PropTypes.func.isRequired
 };
 
 const ConnectedOffersContainer = connect(mapStateToProps, mapDispatchToProps)(OffersContainer);
