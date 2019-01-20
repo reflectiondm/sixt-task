@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import OffersList from './OffersList';
 import OffersSortingSelector from './OffersSortingSelector';
+import LoadingIndicator from './Loader';
 
 class OffersContainer extends React.PureComponent {
   componentDidMount() {
@@ -13,7 +14,7 @@ class OffersContainer extends React.PureComponent {
 
   render() {
     if (this.props.isLoading) {
-      return <div>Offers are loading</div>;
+      return <LoadingIndicator>Offers are loading</LoadingIndicator>;
     }
 
     return (
