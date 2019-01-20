@@ -5,6 +5,7 @@ import OfferCard from './OfferCard';
 
 const OffersGrid = styled.div`
   display: grid;
+  padding: 5px 0;
   grid-gap: 15px;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
