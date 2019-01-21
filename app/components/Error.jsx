@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../styles/constants';
+import { media } from '../styles/constants';
 
 const ErrorWrapper = styled.div`
   width: 100%;
@@ -14,7 +15,7 @@ const Title = styled.h1`
   font-size: 46px;
   margin: 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${media.tablet}) {
     font-size: 72px;
   }
 `;

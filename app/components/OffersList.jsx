@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import OfferCard from './OfferCard';
+import { media } from '../styles/constants';
 
 const OffersGrid = styled.div`
   display: grid;
@@ -10,7 +11,7 @@ const OffersGrid = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
 
-  @media screen and (min-width: 780px) {
+  @media screen and (min-width: ${media.tablet}) {
     grid-template-columns: repeat(4, 1fr);
   }
 `;

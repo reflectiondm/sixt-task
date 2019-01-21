@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { colors } from '../styles/constants';
+import { colors, media } from '../styles/constants';
 
 const textSizesMixin = css`
-  @media screen and (max-width: 320px){
+  @media screen and (max-width: ${media.iPhone5}){
     font-size: 12px;
   }
-  @media screen and (min-width: 410px) and (max-width: 780px){
+  @media screen and (min-width: ${media.iPhone5}) and (max-width: 780px){
     font-size: 14px;
   }
 `;

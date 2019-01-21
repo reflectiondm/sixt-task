@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../styles/constants';
+import { colors, media } from '../styles/constants';
 
 const HeroWrapper = styled.div`
   background: ${colors.sixtOrange};
   height: 150px;
   padding-left: 46px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${media.tablet}) {
     padding-left: 72px;
   }
 `;
@@ -18,7 +18,7 @@ const Title = styled.h1`
   text-transform: uppercase;
   margin: 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${media.tablet}) {
     font-size: 72px;
   }
 `;
