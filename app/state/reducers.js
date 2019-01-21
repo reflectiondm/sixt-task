@@ -7,7 +7,7 @@ const initialState = {
 };
 
 function sortOffers(offers, sortingId) {
-  return offers.sort((a, b) => {
+  return [...offers].sort((a, b) => {
     if (a.sortIndexes[sortingId] < b.sortIndexes[sortingId]){
       return -1;
     }
