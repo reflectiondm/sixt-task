@@ -4,7 +4,7 @@ import { colors } from '../styles/constants';
 import linkedIn from '../images/linkedin-social-logo.svg';
 import github from '../images/github-sign.svg';
 
-const FooterContainer = styled.div`
+const FooterWrapper = styled.div`
   background: ${colors.sixtBlack};
   color: ${colors.pureWhite};
   padding: 5px;
@@ -46,7 +46,7 @@ const Disclaymer = styled.div`
 
 export default function Footer() {
   return (
-    <FooterContainer>
+    <FooterWrapper>
       <CopyrightText>Copyright © 2019 - Andrei Zubov</CopyrightText>
       <LinkedIn href="http://www.linkedin.com/in/andreizubov" title="LinkedIn">
         <SocialLinkImage src={linkedIn} alt="LinkedIn"/>
@@ -57,6 +57,6 @@ export default function Footer() {
       <Disclaymer>
         Icons made by <a href="https://www.flaticon.com/authors/vectorgraphit" title="Vectorgraphit">Vectorgraphit</a> and <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="blank">CC 3.0 BY</a>
       </Disclaymer>
-    </FooterContainer>
+    </FooterWrapper>
   );
 }
