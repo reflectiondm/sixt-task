@@ -19,3 +19,40 @@ and then just run
 ```bash
   npm start
 ```
+# other commands
+Run tests:
+```bash
+  npm run test
+```
+Run tests in wach mode:
+```bash
+  npm run test:watch
+```
+Lint the project:
+```bash
+  npm run lint
+```
+
+# Comments on the solution
+## What has been done
+
+The task as it is described above is completed. The website renders a webpage that shows a list of offers taken from the provided json. Interestingly, `access-control-allow-origin` header is set to * so I didn't have to install any aditional extensions.
+
+Offers are rendered in a responsive grid with a break point of 768px. Since it wasn't explicitly restricted in the task, I assumed target browsers to be modern versions of Chrome, Safari, Firefox and Edge, so responsive behavior is implemeted using `css-grid`.
+
+Offers could be sorted using a panel in the top side of the page. I assumed objects present in json are following a strict data contract so I didn't do excessive defensive checks to check that required fields are present.
+
+There are also tests written for reducers and linting available.
+
+## What I would add for a real-world project
+Of course a realworld project is much more complicated then a test task, so I would like to name a few things that I would consider for a real-world application:
+
+Tests of react components, using jest snapshot testing, for example.
+
+More robust proptypes definition that resembles domain objects more closely.
+
+More robust error handling and reporting.
+
+ARIA support
+
+Internationalization
