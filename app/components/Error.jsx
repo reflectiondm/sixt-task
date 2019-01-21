@@ -19,15 +19,11 @@ const Title = styled.h1`
   }
 `;
 
-const SubTitle = styled.span`
-
-`;
-
 export default function Error() {
   return (
     <ErrorWrapper>
       <Title>Oops.</Title>
-      <SubTitle>Etwas ist schief gelaufen <nobr>:(</nobr> <br/>Versuchen Sie die Seite später erneut zu laden</SubTitle>
+      <span>Etwas ist schief gelaufen <nobr>:(</nobr><br/>Versuchen Sie die Seite später erneut zu laden</span>
     </ErrorWrapper>
   );
 }
