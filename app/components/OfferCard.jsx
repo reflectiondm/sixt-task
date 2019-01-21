@@ -74,7 +74,7 @@ export default function OfferCard({offer}) {
     <OfferCardTileBox>
       <OfferCardTileLayout>
         <OfferCarName title={carName}>{carName}</OfferCarName>
-        <OfferCarPicture src={carPicture}></OfferCarPicture>
+        <OfferCarPicture src={carPicture} alt={carName}></OfferCarPicture>
         <OfferCarPrice>ab €<OfferCarPriceValue>{carPrice}</OfferCarPriceValue> pro {unit}</OfferCarPrice>
       </OfferCardTileLayout>
     </OfferCardTileBox>

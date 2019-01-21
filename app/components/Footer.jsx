@@ -48,11 +48,11 @@ export default function Footer() {
   return (
     <FooterContainer>
       <CopyrightText>Copyright © 2019 - Andrei Zubov</CopyrightText>
-      <LinkedIn href="http://www.linkedin.com/in/andreizubov">
-        <SocialLinkImage src={linkedIn} />
+      <LinkedIn href="http://www.linkedin.com/in/andreizubov" title="LinkedIn">
+        <SocialLinkImage src={linkedIn} alt="LinkedIn"/>
       </LinkedIn>
-      <GitHub href="http://www.github.com/reflectiondm">
-        <SocialLinkImage src={github} />
+      <GitHub href="http://www.github.com/reflectiondm" title="github">
+        <SocialLinkImage src={github} alt="github" />
       </GitHub>
       <Disclaymer>
         Icons made by <a href="https://www.flaticon.com/authors/vectorgraphit" title="Vectorgraphit">Vectorgraphit</a> and <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="blank">CC 3.0 BY</a>

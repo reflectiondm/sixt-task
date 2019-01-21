@@ -28,6 +28,7 @@ const SelectorButton = styled.button`
   color: ${({active}) => active ? colors.pureWhite : colors.sixtBlack };
   text-transform: uppercase;
   border: none;
+  cursor: pointer;
   font-size: 16px;
 
   grid-row: 2;
