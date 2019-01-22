@@ -45,15 +45,15 @@ export default function OffersSortingSelector({selectedSortingId, onSortingSelec
 
       <SelectorButton 
         active={isOptionSelected(sortingOptions.name, selectedSortingId)}
-        onClick={() => onSortingSelect('name')}
+        onClick={() => onSortingSelect(sortingOptions.name)}
       >Name</SelectorButton>
       <SelectorButton 
         active={isOptionSelected(sortingOptions.price, selectedSortingId)}
-        onClick={() => onSortingSelect('price')}
+        onClick={() => onSortingSelect(sortingOptions.price)}
       >Price</SelectorButton>
       <SelectorButton 
         active={isOptionSelected(sortingOptions.popularity, selectedSortingId)}
-        onClick={() => onSortingSelect('popularity')}
+        onClick={() => onSortingSelect(sortingOptions.popularity)}
       >Popularität</SelectorButton>
     </SortingSelectorLayout>
   );
